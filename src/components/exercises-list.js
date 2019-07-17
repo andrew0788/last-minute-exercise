@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-
+//try this as a class
 const Exercise = props => (
   <tr>
     <td>{props.exercise.username}</td>
@@ -24,8 +24,7 @@ export default class ExercisesList extends Component {
     this.state = {exercises: []};
   }
 
-  componentDidMount(e) {
-    e.preventDefault();
+  componentDidMount() {
     axios.get('/exercises/')
       .then(response => {
         this.setState({ exercises: response.data })

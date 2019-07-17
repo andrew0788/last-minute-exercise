@@ -23,7 +23,6 @@ export default class CreateExercise extends Component {
   }
 
   componentDidMount() {
-    console.log('monted');
     axios.get('http://localhost:5000/users/')
       .then(response => {
         if (response.data.length > 0) {

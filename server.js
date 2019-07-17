@@ -29,12 +29,13 @@ connection.once('open', () => {
   console.log(`mongoDB connected at ${port}`);
 })
 
+app.use('/exercises', exercisesRouter);
+app.use('/users', usersRouter);
+
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-app.use('/exercises', exercisesRouter);
-app.use('/users', usersRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
