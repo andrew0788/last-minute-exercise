@@ -8,6 +8,7 @@
     "bootstrap": "^4.3.1",
     "cors": "^2.8.5",
     "mongoose": "^5.6.4",
+    "path": "^0.12.7",
     "react": "^16.8.6",
     "react-datepicker": "^2.8.0",
     "react-dom": "^16.8.6",
