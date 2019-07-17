@@ -1,5 +1,7 @@
 const express = require('express');
 const path = require('path')
+const favicon = require('serve-favicon');
+const logger = require('morgan');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
@@ -7,6 +9,11 @@ require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 5000;
+
+app.use(logger('dev'));
+
+app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
+app.use(express.static(path.join(__dirname, 'build')))
 
 const exercisesRouter = require('./routes/exercises');
 const usersRouter = require('./routes/users');
@@ -25,6 +32,7 @@ connection.once('open', () => {
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
+
 app.use('/exercises', exercisesRouter);
 app.use('/users', usersRouter);
 
