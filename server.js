@@ -21,6 +21,9 @@ connection.once('open', () => {
   console.log(`mongoDB connected at ${port}`);
 })
 
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 app.use('/exercises', exercisesRouter);
 app.use('/users', usersRouter);
 
